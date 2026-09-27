@@ -1,0 +1,52 @@
+### model
+model_name_or_path: manycore-research/SpatialLM1.1-Qwen-0.5B
+trust_remote_code: true
+
+### method
+do_train: true
+freeze_language_tower: false
+freeze_point_tower: false
+train_proj_only: false
+
+### dataset
+dataset: scene_graph_train  # matches key in dataset_info.json
+dataset_dir: /group/graphwrit3r/3rscan_subset_scene_graph_data_rio10/ # directory containing pcd/, dataset_info.json, and train/val jsons
+template: spatiallm_qwen
+num_bins: 1280
+do_augmentation: false
+random_rotation: false
+scene_graph_mode: auto
+cutoff_len: 16384
+overwrite_cache: true
+preprocessing_num_workers: 8
+dataloader_num_workers: 8
+
+### output
+output_dir: /group/graphwrit3r/graphwrit3r_runs/spatiallm_scene_graph_sft
+logging_steps: 10
+save_steps: 100
+overwrite_output_dir: false
+save_total_limit: 15
+
+### train
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 8
+learning_rate: 5.0e-5
+num_train_epochs: 10
+lr_scheduler_type: cosine
+warmup_ratio: 0.03
+pure_bf16: false
+bf16: false
+fp16: false
+tf32: true
+ddp_timeout: 180000000
+report_to: none   # choices: [none, wandb, tensorboard, swanlab]
+run_name: spatiallm-scene-graph-3rscanpretrained
+max_new_tokens: 16384
+
+### eval
+eval_dataset: scene_graph_val
+val_size: 0.0
+per_device_eval_batch_size: 1
+eval_strategy: steps
+eval_steps: 100

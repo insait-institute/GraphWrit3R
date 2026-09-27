@@ -1,0 +1,115 @@
+{
+  "all": {
+    "actual_discard_fraction_micro": 0.0,
+    "actual_discarded_occupied_voxel_volume_m3": 0.0,
+    "actually_discarded_voxels": 0,
+    "exact_same_cell_coverage_micro_diagnostic": 0.4113050658759244,
+    "exact_same_cell_coverage_per_scene_diagnostic": {
+      "max": 0.679086862692204,
+      "mean": 0.4156262041385145,
+      "median": 0.4139318664744158,
+      "p90": 0.4967893076010689,
+      "p95": 0.5266336095990155
+    },
+    "nearest_filled_voxels": 165223,
+    "output_voxels": 37526414,
+    "scenes": 2434,
+    "sonata_input_voxels": 37526414,
+    "support_coverage_micro": 0.9955971545802378,
+    "supported_within_match_radius_voxels": 37361191,
+    "unsupported_fraction_micro": 0.004402845419762197,
+    "unsupported_fraction_per_scene": {
+      "max": 0.1018757528824643,
+      "mean": 0.004897513827167279,
+      "median": 0.0027943134750183056,
+      "p90": 0.010685355304565925,
+      "p95": 0.01623694852771028
+    },
+    "unsupported_occupied_voxel_volume_m3_if_not_filled": 2.5816093750000007,
+    "unsupported_within_match_radius_voxels": 165223,
+    "volume_note": "Volumes count occupied voxels times voxel_size^3; they are not a fraction of the scenes' axis-aligned bounding-box volume.",
+    "voxel_size_m": 0.025
+  },
+  "bridge_root": "/group/graphwrit3r/3rscan_subset_chorus_sonata_raw_bridge_rio10",
+  "encoded_token_evaluation": {
+    "matched_encoded_tokens_avg": 302.2894736842105,
+    "matched_to_sonata_fraction": 0.9581282842605722,
+    "no_match_scene_count": 0,
+    "returned_encoded_tokens_avg": 315.5,
+    "returned_to_sonata_fraction": 1.0,
+    "sonata_encoded_tokens_avg": 315.5,
+    "source": "/group/graphwrit3r/continue_chorus2250_polish_avg/rio10_train_val3dgs/all_results.json",
+    "unmatched_sonata_fraction": 0.04187171573942783
+  },
+  "model_policy": {
+    "discard_unmatched_tokens": false,
+    "fusion_mode": "avg",
+    "match_grid_radius": 0,
+    "missing_policy": "pcd",
+    "source": "/group/graphwrit3r/continue_chorus2250_polish_avg/rio10_train_val3dgs/config.json"
+  },
+  "splits": {
+    "train": {
+      "actual_discard_fraction_micro": 0.0,
+      "actual_discarded_occupied_voxel_volume_m3": 0.0,
+      "actually_discarded_voxels": 0,
+      "exact_same_cell_coverage_micro_diagnostic": 0.41178116011738175,
+      "exact_same_cell_coverage_per_scene_diagnostic": {
+        "max": 0.679086862692204,
+        "mean": 0.4161735023005502,
+        "median": 0.4148118824516316,
+        "p90": 0.4975572568277797,
+        "p95": 0.5271454835262367
+      },
+      "nearest_filled_voxels": 158434,
+      "output_voxels": 36902337,
+      "scenes": 2396,
+      "sonata_input_voxels": 36902337,
+      "support_coverage_micro": 0.9957066675750103,
+      "supported_within_match_radius_voxels": 36743903,
+      "unsupported_fraction_micro": 0.004293332424989778,
+      "unsupported_fraction_per_scene": {
+        "max": 0.1018757528824643,
+        "mean": 0.004749436840326948,
+        "median": 0.002775259022818434,
+        "p90": 0.010393911278672905,
+        "p95": 0.015581733644026612
+      },
+      "unsupported_occupied_voxel_volume_m3_if_not_filled": 2.4755312500000004,
+      "unsupported_within_match_radius_voxels": 158434,
+      "volume_note": "Volumes count occupied voxels times voxel_size^3; they are not a fraction of the scenes' axis-aligned bounding-box volume.",
+      "voxel_size_m": 0.025
+    },
+    "val": {
+      "actual_discard_fraction_micro": 0.0,
+      "actual_discarded_occupied_voxel_volume_m3": 0.0,
+      "actually_discarded_voxels": 0,
+      "exact_same_cell_coverage_micro_diagnostic": 0.3827781107720104,
+      "exact_same_cell_coverage_per_scene_diagnostic": {
+        "max": 0.47539980774272483,
+        "mean": 0.3811176147638388,
+        "median": 0.3820196206205265,
+        "p90": 0.4402803553115102,
+        "p95": 0.4543185588200742
+      },
+      "nearest_filled_voxels": 6789,
+      "output_voxels": 624077,
+      "scenes": 38,
+      "sonata_input_voxels": 624077,
+      "support_coverage_micro": 0.989121534682419,
+      "supported_within_match_radius_voxels": 617288,
+      "unsupported_fraction_micro": 0.010878465317581004,
+      "unsupported_fraction_per_scene": {
+        "max": 0.06381039197812215,
+        "mean": 0.014234157523731283,
+        "median": 0.0047048155529258815,
+        "p90": 0.03815676877677576,
+        "p95": 0.05884546753604202
+      },
+      "unsupported_occupied_voxel_volume_m3_if_not_filled": 0.10607812500000002,
+      "unsupported_within_match_radius_voxels": 6789,
+      "volume_note": "Volumes count occupied voxels times voxel_size^3; they are not a fraction of the scenes' axis-aligned bounding-box volume.",
+      "voxel_size_m": 0.025
+    }
+  }
+}

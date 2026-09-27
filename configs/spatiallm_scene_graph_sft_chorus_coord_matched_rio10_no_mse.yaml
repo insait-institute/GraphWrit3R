@@ -1,0 +1,93 @@
+### model
+model_name_or_path: manycore-research/SpatialLM1.1-Qwen-0.5B
+trust_remote_code: true
+
+### Chorus + Sonata fusion with auxiliary token alignment
+chorus_fusion_enabled: true
+chorus_repo_root: third_party/chorus
+chorus_config: chorus_3dgs
+chorus_checkpoint: /group/graphwrit3r/lang-dino-enc-pretrain-scan-ppv2-mp3d-mcmc.pth
+chorus_aligned_root: /group/graphwrit3r/3rscan_subset_chorus_sonata_native_cache_rio10_crop_radius_m0p25
+chorus_input_mode: prepared
+chorus_use_sonata_lattice_for_coord_matched: true
+chorus_mirror_sonata_trainability: true
+chorus_fusion_mode: chorus_coord_matched  # choices: avg, append, pcd, chorus, chorus_matched, chorus_coord_matched, transformer
+chorus_missing_policy: pcd
+chorus_modality_dropout_rate: 0.5
+chorus_drop_pcd_probability: 0.6
+chorus_discard_unmatched_tokens: false
+chorus_fusion_gate_mode: global
+chorus_contrastive_loss_weight: 0.5
+chorus_contrastive_loss_final_weight: 0.0
+chorus_contrastive_warmup_ratio: 0.0
+chorus_contrastive_decay_start_ratio: 1.0
+chorus_contrastive_exact_only: false
+chorus_contrastive_backprop_sonata: false
+chorus_contrastive_cosine_enabled: true
+chorus_contrastive_mse_enabled: false
+chorus_contrastive_info_nce_enabled: true
+chorus_contrastive_cosine_weight: 1.0
+chorus_contrastive_mse_weight: 0.25
+chorus_contrastive_info_nce_weight: 0.1
+chorus_contrastive_temperature: 0.07
+chorus_contrastive_min_matched_tokens: 32
+chorus_fourier_head_layer_norm: false
+chorus_init_fourier_head_from_sonata: true
+chorus_disable_drop_path: true
+
+### method
+do_train: true
+freeze_language_tower: false
+freeze_point_tower: false
+train_proj_only: false
+
+### dataset
+dataset: scene_graph_train
+eval_dataset: scene_graph_val_3dgs
+dataset_dir: /group/graphwrit3r/3rscan_subset_scene_graph_data_rio10_chorus_fusion_raw_bridge
+filter_to_chorus_available: false
+template: spatiallm_qwen
+num_bins: 1280
+do_augmentation: false
+random_scaling: false
+pcd_only_random_scaling: true
+pcd_only_scaling_min: 0.75
+pcd_only_scaling_max: 1.25
+random_rotation: false
+scene_graph_mode: auto
+cutoff_len: 16384
+overwrite_cache: true
+preprocessing_num_workers: 8
+dataloader_num_workers: 4
+
+### output
+output_dir: /group/graphwrit3r/graphwrit3r_runs/rio10_train_val3dgs_no_mse
+logging_steps: 10
+save_steps: 100
+overwrite_output_dir: false
+save_total_limit: 10
+
+
+### train
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 4
+learning_rate: 8.0e-6
+num_train_epochs: 10
+lr_scheduler_type: cosine
+warmup_ratio: 0.03
+pure_bf16: false
+bf16: true
+fp16: false
+tf32: true
+ddp_timeout: 180000000
+report_to: wandb
+run_name: spatiallm-chorus-scheduled-contrastive-matched-rio10-no-mse
+max_new_tokens: 16384
+
+### eval
+val_size: 0.0
+per_device_eval_batch_size: 1
+do_eval: true
+eval_strategy: "steps"
+eval_steps: 50
+eval_chorus_fusion_modes: pcd,chorus,chorus_coord_matched

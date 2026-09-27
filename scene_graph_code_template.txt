@@ -1,0 +1,1 @@
+{"num_objects": <int>, "objects": [{"id": <int>, "label": <str>, "position": [<int>, <int>, <int>], "size": [<int>, <int>, <int>], "angle_z": <int>}], "relationships": [[<subject_id>, <object_id>, <predicate>]]}
